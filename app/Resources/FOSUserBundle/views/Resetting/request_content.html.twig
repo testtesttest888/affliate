@@ -1,0 +1,15 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if invalid_username is defined %}
+    <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+{% endif %}
+
+<div class="form-wrapper">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request wow fadeInUp">
+        <h2 class="form-signin-heading">Forgot password</h2>
+        <div class="login-wrap">
+            <input type="text" id="username" name="username" required="required" class="form-control" placeholder="Username or e-mail" id="username" name="_username" autofocus />
+            <input type="submit" value="{{ 'resetting.request.submit'|trans }}" class="btn btn-lg btn-login btn-block"  />
+        </div>
+    </form>
+</div>
